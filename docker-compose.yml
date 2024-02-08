@@ -1,0 +1,20 @@
+version: '2.1'
+
+services:
+  eureka-server:
+    build: eureka-server
+    mem_limit: 512m
+    ports:
+      - "8761:8761"
+    networks:
+      - 'animal-network'
+  animaleureka-service:
+    build: animaleureka-service
+    mem_limit: 512m
+    ports:
+      - "8084:8084"
+    networks:
+      - 'animal-network'
+
+networks:
+  animal-network:
